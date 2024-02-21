@@ -17,12 +17,12 @@ const styles = () => css`
     width:var(--fam-button-width);
     height:var(--fam-button-height);
     text-transform: var(--fam-button-text-transform);
-    cursor: pointer
+    cursor: pointer;
   }
 
   fam-button > * {
     display:flex;
-   width:var(--fam-button-width);
+    width:var(--fam-button-width);
     height:var(--fam-button-height);
     justify-content: var(--fam-button-justify-content);
     align-items: var(--fam-button-align-items);
@@ -50,11 +50,13 @@ const styles = () => css`
   }
 
   fam-button *[type="primary-disabled"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(--primary-dark);
-    background:var(--blue-5);
-    border:1px solid var(--blue-5);  
+    font-size:var(--fam-button-font-size);
+    border-radius: var(--fam-button-border-radius);
+    color: var(--fam-buttom-primary-disabled-text-color);
+    background:var(--fam-buttom-primary-disabled-background);
+    border-width: var(--fam-buttom-border-width);  
+    border-style: var(--fam-buttom-border-style);  
+    border-color: var(--fam-buttom-primary-disabled-border-color);  
   }
 
   fam-button *[type="primary-hole-disabled"] {
@@ -65,67 +67,79 @@ const styles = () => css`
     border:1px solid var(--primary-soft);  
   }
 
-  fam-button *[type="tertiary"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(--white-1);
-    background: var(--secondary-dark);
-    border:2px solid var(--secondary-dark-strong)   
-  }
-
-  fam-button *[type="tertiary-hole"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(--secondary-dark-strong);
-    background:none;
-    border:2px solid var(--secondary-dark-strong)   
-  }
-
-  fam-button *[type="tertiary-disabled"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(--secondary-soft);
-    background:var(--secondary-soft-light);
-    border:1px solid var(--secondary-soft)   
-  }
-
-  fam-button *[type="tertiary-hole-disabled"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(--secondary-soft-light);
-    background:none;
-    border:1px solid var(--secondary-soft-light);   
-  }
- 
   fam-button *[type="secondary"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(--white-1);
-    background:var(--tertiary-dark);
-    border:2px solid var(--tertiary-dark-strong)   
+    font-size:var(--fam-button-font-size);
+    border-radius: var(--fam-button-border-radius);
+    color: var(--fam-buttom-secondary-color);
+    background: var(--fam-buttom-secondary-background);
+    border-width: var(--fam-buttom-border-width);  
+    border-style: var(--fam-buttom-border-style);  
+    border-color: var(--fam-buttom-secondary-border-color); 
   }
-  
+
   fam-button *[type="secondary-hole"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(--tertiary-dark-strong);
-    background:none;
-    border:2px solid var(--tertiary-dark-strong)   
+    font-size:var(--fam-button-font-size);
+    border-radius: var(--fam-button-border-radius);
+    color: var(--fam-buttom-secondary-hole-color);
+    background:var(--fam-buttom-secondary-hole-background);
+    border-width: var(--fam-buttom-border-width);  
+    border-style: var(--fam-buttom-border-style);  
+    border-color: var(--fam-buttom-secondary-hole-border-color);  
   }
 
   fam-button *[type="secondary-disabled"] {
-    font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(  --tertiary-soft);
-    background:var(--tertiary-soft-light);
-    border:1px solid var(--tertiary-soft)   
+    font-size:var(--fam-button-font-size);
+    border-radius: var(--fam-button-border-radius);
+    color: var(--fam-buttom-secondary-disabled-text-color);
+    background:var(--fam-buttom-secondary-disabled-background);
+    border-width: var(--fam-buttom-border-width);  
+    border-style: var(--fam-buttom-border-style);  
+    border-color: var(--fam-buttom-secondary-disabled-border-color);  
   }
 
   fam-button *[type="secondary-hole-disabled"] {
     font-size:var(--text-secondary);
-    border-radius: var(--border-primary);
-    color: var(  --tertiary-soft);
+    border-radius: var(--border-secondary);
+    color: var(--secondary-soft);
     background:none;
-    border:1px solid var(--tertiary-soft-light)   
+    border:1px solid var(--secondary-soft);  
+  }
+
+  fam-button *[type="tertiary"] {
+    font-size:var(--fam-button-font-size);
+    border-radius: var(--fam-button-border-radius);
+    color: var(--fam-buttom-tertiary-color);
+    background: var(--fam-buttom-tertiary-background);
+    border-width: var(--fam-buttom-border-width);  
+    border-style: var(--fam-buttom-border-style);  
+    border-color: var(--fam-buttom-tertiary-border-color); 
+  }
+
+  fam-button *[type="tertiary-hole"] {
+    font-size:var(--fam-button-font-size);
+    border-radius: var(--fam-button-border-radius);
+    color: var(--fam-buttom-tertiary-hole-color);
+    background:var(--fam-buttom-tertiary-hole-background);
+    border-width: var(--fam-buttom-border-width);  
+    border-style: var(--fam-buttom-border-style);  
+    border-color: var(--fam-buttom-tertiary-hole-border-color);  
+  }
+
+  fam-button *[type="tertiary-disabled"] {
+    font-size:var(--fam-button-font-size);
+    border-radius: var(--fam-button-border-radius);
+    color: var(--fam-buttom-tertiary-disabled-text-color);
+    background:var(--fam-buttom-tertiary-disabled-background);
+    border-width: var(--fam-buttom-border-width);  
+    border-style: var(--fam-buttom-border-style);  
+    border-color: var(--fam-buttom-tertiary-disabled-border-color);  
+  }
+
+  fam-button *[type="tertiary-hole-disabled"] {
+    font-size:var(--text-tertiary);
+    border-radius: var(--border-tertiary);
+    color: var(--tertiary-soft);
+    background:none;
+    border:1px solid var(--tertiary-soft);  
   }
 `;
