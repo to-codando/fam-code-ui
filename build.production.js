@@ -1,17 +1,15 @@
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
-
 import * as esbuild from "esbuild";
+import { dirname, resolve } from "path" 
+import { fileURLToPath } from "url";
+import copy from "esbuild-copy-static-files";
 
-import copy from "esbuild-copy-files-plugin";
-import aliasPlugin from "esbuild-plugin-path-alias";
 import { buildEnvironment } from "./build.environment.js";
+import { dTSPathAliasPlugin } from 'esbuild-plugin-d-ts-path-alias';
+
 import { glob } from "glob";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-const isDevMode = process.env.NODE_ENV === "development";
 
 const getGlobFiles = async (directory, ignore = null) => {
   const files = await glob(directory, { ignore: ignore });
@@ -19,20 +17,19 @@ const getGlobFiles = async (directory, ignore = null) => {
 };
 
 const runBuild = async () => {
-  const components = await getGlobFiles("./src/components/**/*.ts");
+  const sourceFiles = await getGlobFiles("./src/**/*.ts");
   const plugins = [
     buildEnvironment({ environment: "production" }),
-    aliasPlugin({
-      "@/components": path.resolve(__dirname, "./src/components"),
-      "@/services": path.resolve(__dirname, "./src/services"),
-      "@/utils": path.resolve(__dirname, "./src/utils"),
-      "@/assets": path.resolve(__dirname, "./src/assets"),
-    }),
     copy({
-      source: ["./src/assets"],
-      target: "./dist",
-      copyWithFolder: true,
+      src: resolve(__dirname,"./static"),
+      dest:  resolve(__dirname,"./dist/static"),
+      recursive: true,
     }),
+    dTSPathAliasPlugin({
+      tsconfigPath:"./tsconfig.json",
+      outputPath:"./dist/types",
+      debug:true
+    })
   ];
 
   esbuild.build({
@@ -44,22 +41,22 @@ const runBuild = async () => {
     format: "esm",
     bundle: true,
     write: true,
-    entryPoints: ["src/main.ts", ...components],
+    entryPoints: ["./src/main.ts", ...sourceFiles],
     tsconfig: "./tsconfig.json",
-    outdir: "./dist",
+    outdir: "./dist/src",
     external: ["http", "canvas", "global-jsdom", "global-jsdom/register"],
-
     keepNames: true,
-    treeShaking: !isDevMode,
-    sourcemap: isDevMode,
-    minify: !isDevMode,
-    target: isDevMode ? ["esnext"] : ["es2018"],
+    treeShaking:true,
+    sourcemap: true,
+    minify: false,
+    target: "es2018",
     loader: {
+      ".js":"ts",
       ".png": "dataurl",
       ".jpg": "file",
       ".jpeg": "file",
-      ".svg": "text",
-    },
+      ".svg": "text"
+    }
   });
 };
 

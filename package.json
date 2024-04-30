@@ -1,16 +1,18 @@
 {
   "name": "fam-code-ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
-  "types": "dist/main.d.ts",
-  "main": "dist/main.js",
-  "files": ["/dist"],
+  "types": "dist/types/src/main.d.ts",
+  "main": "dist/src/main.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "clear": "shx rm -rf ./dist ./coverage",
     "clear:coverage": "shx rm -rf ./coverage",
     "clear:dist": "shx rm -rf ./dist",
     "lint": "rome format ./src --write && rome check ./src --verbose",
-    "build": "cross-env NODE_ENV=production && pnpm clear && node ./build.production.js && tsc -p ./tsconfig.json",
+    "build": "node ./build.production.js",
     "dev": "cross-env NODE_ENV=development && pnpm start:dev && pnpm test:watcher",
     "test": "mocha ./dist/**/*.spec.js",
     "test:coverage": "pnpm run build:test && c8 --reporter=text --reporter=lcov  pnpm test",
@@ -21,11 +23,21 @@
     "doc": "npx http-server ./docs -p 4000"
   },
   "aliases": {
-    "@/components/*": ["./dist/components"],
-    "@/services/*": ["./dist/services"],
-    "@/utils/*": ["./dist/utils"],
-    "@/assets/*": ["./dist/assets"],
-    "@/mock/*": ["./dist/mock"]
+    "@/components/*": [
+      "./dist/src/components"
+    ],
+    "@/services/*": [
+      "./dist/src/services"
+    ],
+    "@/utils/*": [
+      "./dist/src/utils"
+    ],
+    "@/assets/*": [
+      "./dist/static/assets"
+    ],
+    "@/mock/*": [
+      "./dist/src/mock"
+    ]
   },
   "devDependencies": {
     "@esm-bundle/chai": "4.3.4-fix.0",
@@ -40,7 +52,8 @@
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
     "esbuild": "^0.17.11",
-    "esbuild-copy-files-plugin": "^1.1.0",
+    "esbuild-copy-static-files": "^0.1.0",
+    "esbuild-plugin-d-ts-path-alias": "^4.2.0",
     "esbuild-plugin-path-alias": "^1.0.7",
     "glob": "^9.2.1",
     "global-jsdom": "^8.8.0",
@@ -64,7 +77,11 @@
   },
   "author": "Rodrigo Rocha & Marciely Ribeiro",
   "description": "Reactive component IARES UI library",
-  "keywords": ["ui library", "component ui", "iares ui library"],
+  "keywords": [
+    "ui library",
+    "component ui",
+    "iares ui library"
+  ],
   "license": "MIT",
   "homepage": "https://to-codando.github.io/fam-code-ui",
   "url": "https://github.com/to-codando/fam-code-ui/issues",
@@ -73,5 +90,5 @@
     "type": "git",
     "url": "https://github.com/to-codando/fam-code-ui.git",
     "directory": "github:to-codando/fam-code-ui"
-  }  
+  }
 }
