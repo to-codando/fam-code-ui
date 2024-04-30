@@ -1,17 +1,39 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-     "lib": [ "ES2021", "DOM" ],
+    "rootDir": ".",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "paths": {
-      "@/store": ["store/index.ts"],
-      "@/components/*": ["components/*"],
-      "@/utils/*": ["utils/*"],
-      "@/services/*": ["services/*"],
-      "@/assets/*": ["assets/*"],
-      "@/tests/*": ["tests/*"],
-      "@/mock/*": ["mock/*"],
+      "@/store": [
+        "src/store/index.ts"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
+      "@/services/*": [
+        "src/services/*"
+      ],
+      "@/assets/*": [
+        "./static/assets/*"
+      ],
+      "@/tests/*": [
+        "src/tests/*"
+      ],
+      "@/mock/*": [
+        "src/mock/*"
+      ]
     },
-    "strict":true,
+    "strict": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noEmitOnError": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
@@ -19,24 +41,16 @@
     "target": "es2018",
     "module": "esnext",
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
     "importHelpers": true,
-    "outDir": "./dist",
-    "sourceMap": true,
-    "inlineSources": true,
-
-    "allowJs": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationMap": true,
-    // "declarationDir": "dist/types",
-    "typeRoots": ["./node_modules/@types"],
-    "types": [
-      "node",
-      "mocha",
-      "chai"
-    ],    
+    "declaration": true, // Habilita a geração de arquivos .d.ts
+    "declarationMap": true, // Gera arquivos .map para os arquivos .d.ts
+    "emitDeclarationOnly": true
   },
-  "include": ["src/**/*"],
-  
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
