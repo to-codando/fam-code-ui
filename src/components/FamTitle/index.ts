@@ -7,10 +7,10 @@ const template = () => html`
 `;
 
 export const FamTitle = () => {
-	return {
-		template,
-		styles,
-	};
+  return {
+    template,
+    styles,
+  };
 };
 
 const styles = () => css`
@@ -27,7 +27,11 @@ const styles = () => css`
     color: var(--title-color);
   }
 
-  
+  .wrap-ctx {
+    display:flex;
+    width: 100%;
+  }
+
   .wrap-ctx h1,
   .wrap-ctx h2,
   .wrap-ctx h3 {
