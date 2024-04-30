@@ -36,7 +36,7 @@ const styles = () => css`
   .wrap-ctx h2,
   .wrap-ctx h3 {
     width:100%;
-    padding: 1em;
+    padding: var(--title-padding);
     text-align: var(--title-text-align);
   }  
   
