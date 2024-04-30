@@ -17,13 +17,12 @@ const styles = () => css`
   fam-tagline,
   .wrap-ctx {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
   }
   
-  .wrap-ctx p {
+  .wrap-ctx > * {
     display:flex;
+    width:100%;
     justify-content: var(--fam-tagline-justify-content);
     align-items: var(--fam-tagline-align-items);
     font-size: var(--fam-tagline-font-size);
