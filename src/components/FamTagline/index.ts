@@ -7,17 +7,15 @@ const template = () => html`
 `;
 
 export const FamTagline = () => {
-	return {
-		template,
-		styles,
-	};
+  return {
+    template,
+    styles,
+  };
 };
 
 const styles = () => css`
   fam-tagline,
-  .wrap-ctx,
-  .wrap-ctx p
-  {
+  .wrap-ctx {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +23,9 @@ const styles = () => css`
   }
   
   .wrap-ctx p {
+    display:flex;
+    justify-content: var(--fam-tagline-justify-content);
+    align-items: var(--fam-tagline-align-items);
     font-size: var(--fam-tagline-font-size);
     font-weight: var(--fam-tagline-font-weight);
     color: var(--fam-tagline-color);

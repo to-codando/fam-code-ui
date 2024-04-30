@@ -90,6 +90,9 @@
   --fam-tagline-font-size: 1.2em;
   --fam-tagline-font-weight: 500;
   --fam-tagline-line-height: 1.4em;
+  --fam-tagline-align-items: center;
+  --fam-tagline-justify-content: center;
+
 
   /*Paragraph*/
 
