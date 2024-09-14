@@ -12,19 +12,21 @@ const template = ({ props }: templateParams) => html`
 `;
 
 export const FamIcon = () => {
-	const actions = validatorFactory();
-	const hooks = createHooks(actions);
+  const actions = validatorFactory();
+  const hooks = createHooks(actions);
 
-	return {
-		template,
-		styles,
-		hooks,
-		actions,
-	};
+  return {
+    template,
+    styles,
+    hooks,
+    actions,
+  };
 };
 
 const styles = () => css`
-  fam-icon {
+  fam-icon,
+  .wrap-ctx,
+  .wrap-ctx > span{
     display: flex;
     justify-content: center;
     align-items: center;
