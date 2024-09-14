@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/utils/navigate.ts"],
+  "sourcesContent": ["type Tnavigation = {\n\t(hash: string): void;\n};\n\nexport const navigate: Tnavigation = (hash) => {\n\twindow.location.hash = hash;\n};\n"],
+  "mappings": ";;;;AAIO,IAAM,WAAwB,wBAAC,SAAS;AAC9C,SAAO,SAAS,OAAO;AACxB,GAFqC;",
+  "names": []
+}

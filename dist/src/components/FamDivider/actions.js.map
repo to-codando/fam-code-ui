@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/components/FamDivider/actions.ts"],
+  "sourcesContent": ["import { TError } from \"./types\";\n\nexport const createActions = () => {\n\tconst validate = (type: string): TError | null => {\n\t\tconst validTypes = [\"dashed\", \"solid\", \"dotted\", \"rounded\"];\n\t\tconst error = getError(type);\n\t\tif (!validTypes.includes(type)) return error;\n\t\treturn null;\n\t};\n\n\tconst getError = (type: string): TError => {\n\t\treturn {\n\t\t\tisValid: false,\n\t\t\tmessage: `Invalid type: ${type}, expect one of types: [dashed, solid, dotted, rounded] `,\n\t\t\ttypeError: \"DividerError\",\n\t\t};\n\t};\n\n\tconst throwError = (error: TError): void => {\n\t\tconst exception = new Error(error.message);\n\t\texception.name = error.typeError;\n\t\tthrow exception;\n\t};\n\treturn { validate, throwError, getError };\n};\n"],
+  "mappings": ";;;;AAEO,IAAM,gBAAgB,6BAAM;AAClC,QAAM,WAAW,wBAAC,SAAgC;AACjD,UAAM,aAAa,CAAC,UAAU,SAAS,UAAU,SAAS;AAC1D,UAAM,QAAQ,SAAS,IAAI;AAC3B,QAAI,CAAC,WAAW,SAAS,IAAI;AAAG,aAAO;AACvC,WAAO;AAAA,EACR,GALiB;AAOjB,QAAM,WAAW,wBAAC,SAAyB;AAC1C,WAAO;AAAA,MACN,SAAS;AAAA,MACT,SAAS,iBAAiB;AAAA,MAC1B,WAAW;AAAA,IACZ;AAAA,EACD,GANiB;AAQjB,QAAM,aAAa,wBAAC,UAAwB;AAC3C,UAAM,YAAY,IAAI,MAAM,MAAM,OAAO;AACzC,cAAU,OAAO,MAAM;AACvB,UAAM;AAAA,EACP,GAJmB;AAKnB,SAAO,EAAE,UAAU,YAAY,SAAS;AACzC,GAtB6B;",
+  "names": []
+}

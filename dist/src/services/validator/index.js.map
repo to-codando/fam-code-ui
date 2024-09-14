@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/services/validator/index.ts"],
+  "sourcesContent": ["import { TError } from \"./types\";\n\nexport const validatorFactory = () => {\n\tconst validate = (value: string): TError | null => {\n\t\tconst error = getError();\n\t\tif (!value) return error;\n\t\treturn null;\n\t};\n\n\tconst getError = (): TError => {\n\t\treturn {\n\t\t\tisValid: false,\n\t\t\tmessage: \"The name or size property is not defined and must be.\",\n\t\t\ttypeError: \"IconError\",\n\t\t};\n\t};\n\n\tconst throwError = (error: TError): void => {\n\t\tconst exception = new Error(error.message);\n\t\texception.name = error.typeError;\n\t\tthrow exception;\n\t};\n\treturn { validate, throwError, getError };\n};\n"],
+  "mappings": ";;;;AAEO,IAAM,mBAAmB,6BAAM;AACrC,QAAM,WAAW,wBAAC,UAAiC;AAClD,UAAM,QAAQ,SAAS;AACvB,QAAI,CAAC;AAAO,aAAO;AACnB,WAAO;AAAA,EACR,GAJiB;AAMjB,QAAM,WAAW,6BAAc;AAC9B,WAAO;AAAA,MACN,SAAS;AAAA,MACT,SAAS;AAAA,MACT,WAAW;AAAA,IACZ;AAAA,EACD,GANiB;AAQjB,QAAM,aAAa,wBAAC,UAAwB;AAC3C,UAAM,YAAY,IAAI,MAAM,MAAM,OAAO;AACzC,cAAU,OAAO,MAAM;AACvB,UAAM;AAAA,EACP,GAJmB;AAKnB,SAAO,EAAE,UAAU,YAAY,SAAS;AACzC,GArBgC;",
+  "names": []
+}

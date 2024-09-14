@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/utils/debounce.ts"],
+  "sourcesContent": ["import { HtmlInputEvent } from \"./types\";\n\nexport type Thandler = {\n\t(args: HtmlInputEvent): void;\n};\n\nexport type Handler = {\n\t(args: HtmlInputEvent): void;\n};\n\nexport type Tdebounc = {\n\t(callback: Thandler | Handler, delay?: number): Thandler;\n};\n\nexport const debounce: Tdebounc = (callback, delay = 500) => {\n\tlet timer!: NodeJS.Timeout;\n\n\treturn (args) => {\n\t\tclearTimeout(timer);\n\t\ttimer = setTimeout(() => {\n\t\t\tcallback(args);\n\t\t}, delay);\n\t};\n};\n"],
+  "mappings": ";;;;AAcO,IAAM,WAAqB,wBAAC,UAAU,QAAQ,QAAQ;AAC5D,MAAI;AAEJ,SAAO,CAAC,SAAS;AAChB,iBAAa,KAAK;AAClB,YAAQ,WAAW,MAAM;AACxB,eAAS,IAAI;AAAA,IACd,GAAG,KAAK;AAAA,EACT;AACD,GATkC;",
+  "names": []
+}

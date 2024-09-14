@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/components/FamAvatar/actions.ts"],
+  "sourcesContent": ["import { Params } from \"./types\";\n\nexport const createActions = ({ props }: Pick<Params, \"props\">) => {\n\tconst setFallbackImage = (event: Event & { onerror: null }) => {\n\t\tconst image = event.target as HTMLImageElement;\n\t\timage.src = props.fallbackSrc;\n\t\tevent.onerror = null;\n\t};\n\treturn {\n\t\tsetFallbackImage,\n\t};\n};\n"],
+  "mappings": ";;;;AAEO,IAAM,gBAAgB,wBAAC,EAAE,MAAM,MAA6B;AAClE,QAAM,mBAAmB,wBAAC,UAAqC;AAC9D,UAAM,QAAQ,MAAM;AACpB,UAAM,MAAM,MAAM;AAClB,UAAM,UAAU;AAAA,EACjB,GAJyB;AAKzB,SAAO;AAAA,IACN;AAAA,EACD;AACD,GAT6B;",
+  "names": []
+}

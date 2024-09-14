@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/components/FamDivider/hooks.ts"],
+  "sourcesContent": ["import { Actions } from \"./types\";\n\nexport const createHooks = (actions: Actions) => {\n\tconst afterRender = (element: Element) => {\n\t\tconst dividerType = element.querySelector(\"div\")?.getAttribute(\"type\");\n\t\tconst validation = actions.validate(dividerType || \"\");\n\t\tif (!validation) return;\n\t\tactions.throwError(validation);\n\t};\n\n\treturn { afterRender };\n};\n"],
+  "mappings": ";;;;AAEO,IAAM,cAAc,wBAAC,YAAqB;AAChD,QAAM,cAAc,wBAAC,YAAqB;AAH3C;AAIE,UAAM,eAAc,aAAQ,cAAc,KAAK,MAA3B,mBAA8B,aAAa;AAC/D,UAAM,aAAa,QAAQ,SAAS,eAAe,EAAE;AACrD,QAAI,CAAC;AAAY;AACjB,YAAQ,WAAW,UAAU;AAAA,EAC9B,GALoB;AAOpB,SAAO,EAAE,YAAY;AACtB,GAT2B;",
+  "names": []
+}
